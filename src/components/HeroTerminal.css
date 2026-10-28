@@ -1,0 +1,73 @@
+.terminal {
+  width: 100%;
+  max-width: 460px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(5, 6, 15, 0.75);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+
+.terminal__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.terminal__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--magenta);
+}
+
+.terminal__dot:nth-child(2) {
+  background: var(--orange);
+}
+
+.terminal__dot:nth-child(3) {
+  background: var(--lime);
+}
+
+.terminal__title {
+  margin-left: 0.5rem;
+  color: var(--text-dim);
+}
+
+.terminal__body {
+  min-height: 9.5rem;
+  padding: 0.9rem;
+  color: var(--cyan);
+}
+
+.terminal__body p {
+  margin: 0 0 0.35rem;
+}
+
+.terminal__cursor {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.terminal__note {
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal__cursor {
+    animation: none;
+  }
+}
