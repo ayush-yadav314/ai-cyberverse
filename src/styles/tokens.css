@@ -1,0 +1,28 @@
+:root {
+  /* Backgrounds */
+  --bg-deep: #05060f;
+  --bg-navy: #0a0f24;
+
+  /* Neon palette */
+  --cyan: #22d3ee;
+  --blue: #3b82f6;
+  --violet: #8b5cf6;
+  --magenta: #ec4899;
+  --lime: #a3e635;
+  --orange: #fb923c;
+
+  /* Text */
+  --text: #e8ecff;
+  --text-dim: #9aa4c7;
+  --border: rgba(255, 255, 255, 0.1);
+
+  /* Aurora gradient */
+  --aurora: linear-gradient(120deg, var(--cyan), var(--violet), var(--magenta));
+
+  /* Fonts */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --nav-h: 64px;
+}

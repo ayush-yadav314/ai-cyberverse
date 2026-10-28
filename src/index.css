@@ -1,6 +1,2 @@
-body {
-  margin: 0;
-  background: #05060f;
-  color: #ffffff;
-  font-family: system-ui, sans-serif;
-}
+@import './styles/tokens.css';
+@import './styles/global.css';

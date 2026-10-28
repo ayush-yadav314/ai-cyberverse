@@ -1,12 +1,18 @@
+import Navbar from './components/Navbar'
+import { navLinks } from './data/navLinks'
+
 function App() {
   return (
-    <main>
-      <h1>AI CYBERVERSE</h1>
-      <p>
-        I'm Ayush — an aspiring Agentic AI Developer exploring autonomous
-        systems, intelligent agents, and the future of AI.
-      </p>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        {navLinks.map((link) => (
+          <section key={link.id} id={link.id} className="section">
+            <h2 className="gradient-text">{link.label}</h2>
+          </section>
+        ))}
+      </main>
+    </>
   )
 }
 
