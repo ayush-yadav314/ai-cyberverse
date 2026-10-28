@@ -1,7 +1,13 @@
-import { motion, useReducedMotion } from 'motion/react'
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from 'motion/react'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import NeuralOrb from '../components/NeuralOrb'
 import HeroTerminal from '../components/HeroTerminal'
+import Magnetic from '../components/Magnetic'
 import './Hero.css'
 
 const line1 = ['BUILDING', 'INTELLIGENCE.']
@@ -19,6 +25,8 @@ const word = {
 
 function Hero() {
   const reduce = useReducedMotion()
+  const { scrollY } = useScroll()
+  const orbY = useTransform(scrollY, [0, 600], [0, 90])
 
   return (
     <section id="home" className="hero">
@@ -67,19 +75,27 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
         >
-          <a href="#projects" className="btn btn--primary">
-            Explore My Projects <ArrowRight size={18} />
-          </a>
-          <a href="#contact" className="btn btn--ghost">
-            Let's Connect
-          </a>
+          <Magnetic>
+            <a href="#projects" className="btn btn--primary">
+              Explore My Projects <ArrowRight size={18} />
+            </a>
+          </Magnetic>
+          <Magnetic>
+            <a href="#contact" className="btn btn--ghost">
+              Let's Connect
+            </a>
+          </Magnetic>
         </motion.div>
       </div>
 
-        <div className="hero__visual">
+      <motion.div
+        className="hero__visual"
+        style={reduce ? undefined : { y: orbY }}
+      >
         <NeuralOrb />
         <HeroTerminal />
-      </div>
+      </motion.div>
+
       <a href="#about" className="hero__scroll" aria-label="Scroll to About">
         <span>SCROLL</span>
         <ChevronDown size={20} />

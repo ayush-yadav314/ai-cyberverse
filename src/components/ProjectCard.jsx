@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
+import Tilt from './Tilt'
 
 const kindLabel = {
   user: 'YOU',
@@ -30,7 +31,7 @@ function ProjectCard({ project, flip }) {
       style={{ '--c': project.color }}
       {...reveal}
     >
-      <div className="project__visual">
+       <Tilt className="project__visual">
         {project.screenshot ? (
           <img
             src={project.screenshot}
@@ -43,7 +44,7 @@ function ProjectCard({ project, flip }) {
             <span className="project__art-tag">{project.year}</span>
           </div>
         )}
-      </div>
+      </Tilt>
 
       <div className="project__body">
         <p className="project__year">{project.year}</p>

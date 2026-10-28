@@ -1,28 +1,55 @@
+import { useEffect, useState } from 'react'
+import { AnimatePresence } from 'motion/react'
 import Navbar from './components/Navbar'
+import Loader from './components/Loader'
+import CursorGlow from './components/CursorGlow'
+import ScrollProgress from './components/ScrollProgress'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import AIUniverse from './sections/AIUniverse'
 import Projects from './sections/Projects'
 import Skills from './sections/Skills'
-import { navLinks } from './data/navLinks'
+import Contact from './sections/Contact'
+
+// Show the loader only once per browser session, and never with reduced motion
+function shouldBoot() {
+  try {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    return !reduce && !sessionStorage.getItem('booted')
+  } catch {
+    return false
+  }
+}
 
 function App() {
+  const [booting, setBooting] = useState(shouldBoot)
+
+  useEffect(() => {
+    if (!booting) return
+    const id = setTimeout(() => {
+      setBooting(false)
+      try {
+        sessionStorage.setItem('booted', '1')
+      } catch {
+        // storage can be blocked, that's fine
+      }
+    }, 1800)
+    return () => clearTimeout(id)
+  }, [booting])
+
   return (
     <>
+      <AnimatePresence>{booting && <Loader />}</AnimatePresence>
+      <ScrollProgress />
+      <CursorGlow />
       <Navbar />
       <main>
-        {navLinks.map((link) => {
-          if (link.id === 'home') return <Hero key={link.id} />
-          if (link.id === 'about') return <About key={link.id} />
-          if (link.id === 'universe') return <AIUniverse key={link.id} />
-          if (link.id === 'projects') return <Projects key={link.id} />
-          if (link.id === 'skills') return <Skills key={link.id} />
-          return (
-            <section key={link.id} id={link.id} className="section">
-              <h2 className="gradient-text">{link.label}</h2>
-            </section>
-          )
-        })}
+        <Hero />
+        <About />
+        <AIUniverse />
+        <Projects />
+        <Skills />
+        <Contact />
       </main>
     </>
   )
