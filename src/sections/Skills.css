@@ -1,0 +1,318 @@
+.skills {
+  position: relative;
+  min-height: 100vh;
+  padding: calc(var(--nav-h) + 3rem) clamp(1rem, 5vw, 4rem) 5rem;
+}
+
+.skills__header {
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+.skills__eyebrow {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+}
+
+.skills__title {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+}
+
+.skills__lead {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.skills__legend {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.skills__key {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 0.8rem;
+  border: 2px solid var(--cyan);
+  border-radius: 50%;
+}
+
+.skills__key:first-of-type {
+  margin-left: 0;
+}
+
+.skills__key--hands {
+  background: var(--cyan);
+}
+
+.skills__key--learning {
+  border-style: dashed;
+  background: transparent;
+}
+
+.skills__layout {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ---------- Constellation (desktop) ---------- */
+.skills__svg {
+  display: none;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.skills__ring {
+  fill: none;
+  stroke: var(--c);
+  stroke-opacity: 0.35;
+  stroke-width: 1.5;
+  stroke-dasharray: 4 10;
+  animation: ring-spin 6s linear infinite;
+}
+
+@keyframes ring-spin {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+.skills__hub {
+  fill: var(--c);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+}
+
+.skills__link {
+  stroke: var(--c);
+  stroke-width: 2;
+  stroke-dasharray: 6 8;
+  animation: link-flow 1s linear infinite;
+}
+
+@keyframes link-flow {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+
+/* Skill nodes */
+.skills__node {
+  cursor: pointer;
+  outline: none;
+  opacity: 0.55;
+  transition: opacity 0.3s;
+}
+
+.skills__node.is-lit {
+  opacity: 1;
+}
+
+.skills__node circle {
+  fill: var(--c);
+  stroke: var(--c);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.skills__node.is-learning circle {
+  fill: var(--bg-deep);
+  stroke-dasharray: 3 3;
+}
+
+.skills__node.is-active circle {
+  transform: scale(1.6);
+  filter: drop-shadow(0 0 10px var(--c));
+}
+
+.skills__node:focus-visible circle {
+  stroke: #fff;
+}
+
+.skills__node text {
+  fill: var(--text);
+  font-family: var(--font-display);
+  font-size: 17px;
+  pointer-events: none;
+}
+
+.skills__node.is-active text {
+  fill: var(--c);
+  font-weight: 700;
+}
+
+/* Project pills */
+.skills__project {
+  cursor: pointer;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.skills__project.is-lit {
+  opacity: 1;
+}
+
+.skills__project rect {
+  fill: rgba(10, 15, 36, 0.9);
+  stroke: var(--text-dim);
+  stroke-width: 2;
+  transition: stroke 0.3s, filter 0.3s;
+}
+
+.skills__project.is-lit rect {
+  stroke: #fff;
+}
+
+.skills__project.is-active rect {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+}
+
+.skills__project:focus-visible rect {
+  stroke: var(--cyan);
+  stroke-width: 3;
+}
+
+.skills__project text {
+  fill: var(--text);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* ---------- Chip list (mobile + panel) ---------- */
+.skills__list {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.skills__list h4 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--c);
+}
+
+.skills__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills__chip {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--c, var(--border));
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.skills__chip.is-learning {
+  border-style: dashed;
+}
+
+.skills__chip.is-lit {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.skills__chip.is-active {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 14px var(--c);
+}
+
+/* ---------- Panel ---------- */
+.skills__panel {
+  min-height: 15rem;
+  padding: 1.6rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--c);
+  border-radius: 16px;
+  background: rgba(10, 15, 36, 0.6);
+  backdrop-filter: blur(8px);
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.skills__panel h3 {
+  margin: 0.2rem 0 0.6rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--text);
+}
+
+.skills__panel p {
+  margin: 0 0 0.9rem;
+}
+
+.skills__kind {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--c);
+}
+
+.skills__status {
+  display: inline-block;
+  padding: 0.15rem 0.7rem;
+  border: 1px solid var(--c);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--c);
+}
+
+.skills__status.is-learning {
+  border-style: dashed;
+}
+
+.skills__none {
+  font-size: 0.9rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 700px) {
+  .skills__svg {
+    display: block;
+  }
+  .skills__list {
+    display: none;
+  }
+}
+
+@media (min-width: 1100px) {
+  .skills__layout {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+  .skills__layout > div:last-child {
+    position: sticky;
+    top: calc(var(--nav-h) + 1.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills__ring,
+  .skills__link {
+    animation: none;
+  }
+}
