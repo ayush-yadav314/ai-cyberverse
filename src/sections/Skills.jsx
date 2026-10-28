@@ -18,16 +18,16 @@ const nodes = clusters.flatMap((cluster) => {
     let lx = x
     let ly = y
     let anchor = 'middle'
-    if (cos > 0.3) {
+        if (cos > 0.3) {
       anchor = 'start'
-      lx = x + 16
+      lx = x + 24
     } else if (cos < -0.3) {
       anchor = 'end'
-      lx = x - 16
+      lx = x - 24
     } else if (sin < 0) {
-      ly = y - 18
+      ly = y - 26
     } else {
-      ly = y + 26
+      ly = y + 34
     }
 
     return { ...skill, color: cluster.color, x, y, lx, ly, anchor }
@@ -146,7 +146,7 @@ function Skills() {
                 aria-label={`Project: ${p.name}`}
                 {...interact(p.id)}
               >
-                <rect x={p.x - 75} y={p.y - 20} width="150" height="40" rx="20" />
+                <rect x={p.x - 100} y={p.y - 20} width="200" height="40" rx="20" />
                 <text x={p.x} y={p.y} dy=".35em" textAnchor="middle">
                   {p.short}
                 </text>
