@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
 import { Menu, X } from 'lucide-react'
 import { navLinks } from '../data/navLinks'
@@ -10,6 +10,14 @@ const sectionIds = navLinks.map((link) => link.id)
 function Navbar() {
   const active = useActiveSection(sectionIds)
   const [open, setOpen] = useState(false)
+  useEffect(() => {
+    if (!open) return
+    function onKey(e) {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
 
   return (
     <header className="navbar">

@@ -1,16 +1,43 @@
-# React + Vite
+# AI CYBERVERSE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A futuristic personal portfolio for Ayush Yadav, an aspiring Agentic AI Developer
+(B.Tech CSE, Artificial Intelligence).
 
-Currently, two official plugins are available:
+**Live site:** https://YOUR-SITE.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What's inside
 
-## React Compiler
+- Hero with a canvas neural orb and an illustrative agent terminal
+- An interactive Agent Loop diagram: Perceive, Reason, Plan, Use Tools, Act, Observe, Iterate
+- About section with a learning timeline
+- Skills Universe: an interactive constellation of skills and the projects that use them,
+  with learning-stage skills labelled honestly
+- Project showcases with architecture flows, limitations and links
+- Contact section (the form stays disabled until a form service is connected)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The terminal and the agent loop animations are illustrative. They are not a live AI system.
 
-## Expanding the ESLint configuration
+## Tech stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React, Vite, plain CSS, Motion for React, Lucide icons. Deployed on Vercel.
+
+## Run it locally
+
+    npm install
+    npm run dev
+
+Other commands: `npm run build`, `npm run preview`, `npm run lint`.
+
+## Project structure
+
+    src/
+      components/   reusable pieces (Navbar, NeuralOrb, Magnetic, Tilt, ...)
+      sections/     page sections (Hero, About, AIUniverse, Projects, Skills, Contact)
+      data/         content as data (projects, skills, timeline, agent stages)
+      hooks/        custom hooks
+      styles/       design tokens, global styles, effects
+
+## Accessibility and performance
+
+Respects reduced-motion settings, has keyboard-friendly navigation and a skip link,
+pauses the canvas animation when off-screen, and uses fewer particles on small screens.

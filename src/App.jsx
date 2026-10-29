@@ -40,10 +40,13 @@ function App() {
   return (
     <>
       <AnimatePresence>{booting && <Loader />}</AnimatePresence>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <ScrollProgress />
       <CursorGlow />
       <Navbar />
-      <main>
+      <main id="main">
         <Hero />
         <About />
         <AIUniverse />
