@@ -316,3 +316,145 @@
     top: calc(var(--nav-h) + 2rem);
   }
 }
+/* ---------- Icons and hover effects ---------- */
+.project__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.project__meta .project__year {
+  margin: 0;
+}
+
+.project__icon,
+.mini__icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--c);
+  border-radius: 10px;
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 12%, transparent);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--c) 25%, transparent);
+}
+
+.project__art-icon {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  color: var(--c);
+  opacity: 0.85;
+}
+
+.project__stack li {
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.project__stack li:hover {
+  border-color: var(--c);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--c) 35%, transparent);
+  transform: translateY(-2px);
+}
+
+.project__details {
+  transition: border-color 0.25s;
+}
+
+.project__details:hover {
+  border-color: var(--c);
+}
+
+/* ---------- More projects ---------- */
+.projects__more-title {
+  margin: 0 0 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--cyan);
+}
+
+.projects__more-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.mini {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--c);
+  border-radius: 16px;
+  background: rgba(10, 15, 36, 0.55);
+  backdrop-filter: blur(8px);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.mini:hover {
+  transform: translateY(-4px);
+  border-color: var(--c);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--c) 22%, transparent);
+}
+
+.mini__top {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.mini__label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--c);
+}
+
+.mini h4 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.mini p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.mini .mini__tagline {
+  color: var(--text);
+}
+
+.mini .project__stack {
+  margin: 0.3rem 0 0;
+}
+
+.mini .mini__note {
+  padding: 0.6rem 0.9rem;
+  border: 1px dashed var(--orange);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: var(--orange);
+}
+
+.mini .btn {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 760px) {
+  .projects__more-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mini:hover,
+  .project__stack li:hover {
+    transform: none;
+  }
+}

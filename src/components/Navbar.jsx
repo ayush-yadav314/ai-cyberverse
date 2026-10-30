@@ -21,8 +21,8 @@ function Navbar() {
 
   return (
     <header className="navbar">
-      <a href="#home" className="navbar__logo">
-        AI<span>CYBERVERSE</span>
+      <a href="#home" className="navbar__logo" aria-label="Ayush Yadav, home">
+        AYUSH <span>YADAV</span>
       </a>
 
       <button

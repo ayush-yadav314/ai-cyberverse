@@ -18,6 +18,7 @@
 
   /* Aurora gradient */
   --aurora: linear-gradient(120deg, var(--cyan), var(--violet), var(--magenta));
+  --name-gradient: linear-gradient(90deg, var(--cyan), var(--violet));
 
   /* Fonts */
   --font-display: 'Space Grotesk', system-ui, sans-serif;

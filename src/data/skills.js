@@ -65,9 +65,9 @@ export const skills = [
     id: 'react',
     name: 'React',
     cluster: 'programming',
-    status: 'learning',
+    status: 'hands-on',
     projects: [],
-    note: 'Learning React by building this portfolio.',
+    note: 'Used to build PlateLog and this portfolio.',
   },
 
   // Agentic AI
@@ -109,7 +109,7 @@ export const skills = [
     cluster: 'agentic',
     status: 'hands-on',
     projects: ['browser', 'finance'],
-    note: 'Building applications on top of language models, local and hosted.',
+    note: 'Applications built on local and hosted models: the browser agent, the financial assistant and the AI coach in PlateLog.',
   },
 
   // Tools
@@ -144,6 +144,22 @@ export const skills = [
     status: 'hands-on',
     projects: ['finance'],
     note: 'Brings live market data into the financial assistant.',
+  },
+  {
+    id: 'fastapi',
+    name: 'FastAPI',
+    cluster: 'tools',
+    status: 'hands-on',
+    projects: [],
+    note: 'Powers the backend of PlateLog.',
+  },
+  {
+    id: 'postgresql',
+    name: 'PostgreSQL',
+    cluster: 'tools',
+    status: 'hands-on',
+    projects: [],
+    note: 'Stores the data of PlateLog in production.',
   },
 
   // Concepts

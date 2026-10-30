@@ -49,7 +49,7 @@
 
 .hero__title {
   margin: 0;
-  font-size: clamp(2.2rem, 7vw, 5.5rem);
+    font-size: clamp(1.9rem, 5.2vw, 4rem);
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.02em;
@@ -164,5 +164,63 @@
   .hero__grid,
   .hero__scroll svg {
     animation: none;
+  }
+}
+/* ---------- Name and subtitle ---------- */
+.hero__identity {
+  margin-bottom: 1.8rem;
+}
+
+.hero__name {
+  margin: 0;
+  font-size: clamp(2.4rem, 11vw, 5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.hero__name span {
+  display: inline-block;
+}
+
+.hero__name-accent {
+  background: var(--name-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__subtitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.9rem;
+  margin: 1rem 0 0;
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 1.8vw, 0.95rem);
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+}
+
+.hero__sep {
+  color: var(--cyan);
+}
+
+@media (min-width: 960px) {
+  .hero__name {
+    font-size: clamp(3rem, 6.2vw, 5.5rem);
+  }
+}
+
+/* On small phones, stack the subtitle instead of leaving stray "|" marks */
+@media (max-width: 600px) {
+  .hero__subtitle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .hero__sep {
+    display: none;
   }
 }

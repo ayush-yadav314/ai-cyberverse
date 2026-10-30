@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowUpRight } from 'lucide-react'
 import Tilt from './Tilt'
+import { projectIcons } from './projectIcons'
 
 const kindLabel = {
   user: 'YOU',
@@ -15,6 +16,7 @@ const kindLabel = {
 function ProjectCard({ project, flip }) {
   const [step, setStep] = useState(0)
   const reduce = useReducedMotion()
+  const Icon = projectIcons[project.icon]
 
   const reveal = reduce
     ? {}
@@ -31,7 +33,7 @@ function ProjectCard({ project, flip }) {
       style={{ '--c': project.color }}
       {...reveal}
     >
-       <Tilt className="project__visual">
+      <Tilt className="project__visual">
         {project.screenshot ? (
           <img
             src={project.screenshot}
@@ -40,6 +42,7 @@ function ProjectCard({ project, flip }) {
           />
         ) : (
           <div className="project__art" aria-hidden="true">
+            {Icon && <Icon className="project__art-icon" size={40} />}
             <span className="project__num">{project.index}</span>
             <span className="project__art-tag">{project.year}</span>
           </div>
@@ -47,7 +50,14 @@ function ProjectCard({ project, flip }) {
       </Tilt>
 
       <div className="project__body">
-        <p className="project__year">{project.year}</p>
+        <div className="project__meta">
+          {Icon && (
+            <span className="project__icon">
+              <Icon size={20} aria-hidden="true" />
+            </span>
+          )}
+          <p className="project__year">{project.year}</p>
+        </div>
         <h3 className="project__title">{project.title}</h3>
         <p className="project__tagline">{project.tagline}</p>
 
@@ -121,7 +131,9 @@ function ProjectCard({ project, flip }) {
               Live demo <ArrowUpRight size={16} />
             </a>
           ) : (
-            <span className="project__nodemo">Live demo: not available</span>
+            <span className="project__nodemo">
+              {project.demoLabel ?? 'Live demo: not available'}
+            </span>
           )}
         </div>
         {project.demoNote && (

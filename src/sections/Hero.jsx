@@ -33,11 +33,26 @@ function Hero() {
       <div className="hero__grid" aria-hidden="true" />
 
       <div className="hero__content">
-        <p className="hero__eyebrow">
-          &gt; B.TECH CSE (AI) · ASPIRING AGENTIC AI DEVELOPER
-        </p>
+        <motion.div
+          className="hero__identity"
+          initial={reduce ? false : { opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <h1 className="hero__name">
+            <span>AYUSH</span>{' '}
+            <span className="hero__name-accent">YADAV</span>
+          </h1>
+          <p className="hero__subtitle">
+            <span>AI DEVELOPER</span>
+            <span className="hero__sep" aria-hidden="true">|</span>
+            <span>ARTIFICIAL INTELLIGENCE</span>
+            <span className="hero__sep" aria-hidden="true">|</span>
+            <span>JAVA &amp; DSA</span>
+          </p>
+        </motion.div>
 
-        <motion.h1
+        <motion.h2
           className="hero__title"
           variants={container}
           initial={reduce ? false : 'hidden'}
@@ -57,7 +72,7 @@ function Hero() {
               </motion.span>
             ))}
           </span>
-        </motion.h1>
+        </motion.h2>
 
         <motion.p
           className="hero__intro"

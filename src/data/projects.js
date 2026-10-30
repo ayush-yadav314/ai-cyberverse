@@ -9,6 +9,7 @@ export const featuredProjects = [
     title: 'Autonomous Browser Agent',
     tagline: 'Plain-English goals in, browser actions out.',
     color: '#22d3ee',
+    icon: 'bot',
     screenshot: null,
     github: 'https://github.com/ayush-yadav314/autonomous-browser-agent',
     demo: null,
@@ -85,6 +86,7 @@ export const featuredProjects = [
     title: 'Multi-Agent Financial Research Assistant',
     tagline: 'Market data, sentiment and charts in one agent workflow.',
     color: '#8b5cf6',
+    icon: 'trending',
     screenshot: null,
     github: 'https://github.com/ayush-yadav314/financial-agent-ai',
     demo: 'https://financial-agent-ai-a.streamlit.app/',
@@ -155,6 +157,7 @@ export const featuredProjects = [
     title: 'PlateLog',
     tagline: 'Log sets fast, watch your progress, get AI coaching.',
     color: '#a3e635',
+    icon: 'dumbbell',
     screenshot: null,
     github: 'https://github.com/ayush-yadav314/platelog',
     demo: 'https://platelog-alpha.vercel.app/',
@@ -227,5 +230,104 @@ export const featuredProjects = [
       'Workouts can be deleted but not yet edited.',
       'No automated tests or CI yet.',
     ],
+  },
+    {
+    id: 'cyberverse',
+    index: '04',
+    icon: 'sparkles',
+    year: 'This site',
+    title: 'AI CYBERVERSE',
+    tagline: 'My futuristic React developer portfolio.',
+    color: '#ec4899',
+    screenshot: null,
+    github: 'https://github.com/ayush-yadav314/ai-cyberverse',
+    demo: null,
+    demoLabel: 'You are viewing it now',
+    problem:
+      'A portfolio can list skills without proving them. This one is built to show them: interactive diagrams, project write-ups that include limitations, and skills labelled as hands-on or still learning.',
+    approach:
+      'Built with React and Vite, plain CSS design tokens, and Motion for React for animation. The neural orb is drawn on a Canvas, the agent loop and skills map are SVG, and all content lives in data files so it is easy to update.',
+    features: [
+      'Canvas neural orb that reacts to the pointer and pauses when off-screen',
+      'Interactive agent loop: Perceive, Reason, Plan, Use Tools, Act, Observe, Iterate',
+      'Skills constellation with hands-on and learning labels',
+      'Project showcases with architecture flows and limitations',
+      'Keyboard navigation, a mobile menu and reduced-motion support',
+      'Contact section with a form that stays disabled until it is connected to a service',
+    ],
+    stack: ['React', 'Vite', 'Motion', 'Canvas', 'SVG', 'CSS'],
+    flow: [
+      {
+        label: 'Data files',
+        kind: 'data',
+        desc: 'Projects, skills, the timeline and agent stages live in plain JavaScript data files, so content changes never touch layout code.',
+      },
+      {
+        label: 'React sections',
+        kind: 'code',
+        desc: 'Each section (Hero, About, Agent Loop, Projects, Skills, Contact) is a React component that reads that data.',
+      },
+      {
+        label: 'Canvas + SVG',
+        kind: 'ui',
+        desc: 'The neural orb is drawn on a Canvas. The agent loop and the skills map are SVG, driven by React state.',
+      },
+      {
+        label: 'Motion layer',
+        kind: 'tool',
+        desc: 'Motion for React handles scroll reveals, tilt, magnetic buttons and the navbar indicator, and follows reduced-motion settings.',
+      },
+      {
+        label: 'Visitor',
+        kind: 'user',
+        desc: 'You can hover, click or tab through the diagrams, and everything stays usable without a mouse.',
+      },
+    ],
+    flowNote:
+      'The animations are illustrative. This site is not a live AI system.',
+    details: [
+      {
+        q: 'Why no 3D library?',
+        a: 'A Canvas particle sphere gives the 3D feel without the weight of Three.js, which keeps the page light.',
+      },
+      {
+        q: 'Why keep content in data files?',
+        a: 'It separates design from content, so adding a project means adding one object.',
+      },
+    ],
+    limitations: [
+      'The agent loop and the terminal are illustrative, not a live AI system.',
+      'The contact form is not connected to a service yet.',
+    ],
+  },
+]
+
+// Smaller projects shown as compact cards
+export const moreProjects = [
+  {
+    id: 'quant',
+    icon: 'flask',
+    label: 'ASSESSMENT PROJECT',
+    title: 'Quant Strategy Pipeline',
+    color: '#fb923c',
+    tagline: 'A walk-forward ML pipeline for picking trading strategies.',
+    description:
+      'Ingests trading logs and macro-event data, engineers time and macro-proximity features, and trains an XGBoost model with walk-forward validation to choose a strategy per hour and weekday. Reports Sharpe ratio, Sortino ratio and max drawdown.',
+    stack: ['Python', 'XGBoost', 'SQLite'],
+    note: 'Uses synthetic trading logs and a curated macro-event calendar, as the repo README explains.',
+    github: 'https://github.com/ayush-yadav314/crowdwisdom-quant-pipeline',
+  },
+  {
+    id: 'cancer',
+    icon: 'activity',
+    label: 'ML PROJECT',
+    title: 'Breast Cancer Prediction',
+    color: '#3b82f6',
+    tagline: 'Benign or malignant classification with a Streamlit app.',
+    description:
+      'Classifies breast tumours as benign or malignant using Logistic Regression, with a Streamlit web app for live predictions.',
+    stack: ['Python', 'Logistic Regression', 'Streamlit', 'Jupyter'],
+    note: 'A learning project, not a medical tool.',
+    github: 'https://github.com/ayush-yadav314/breast-cancer-prediction',
   },
 ]
