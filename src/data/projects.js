@@ -297,7 +297,7 @@ export const featuredProjects = [
     ],
     limitations: [
       'The agent loop and the terminal are illustrative, not a live AI system.',
-      'The contact form is not connected to a service yet.',
+      'Contact form that delivers messages to my inbox through Formspree',
     ],
   },
 ]

@@ -1,15 +1,24 @@
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-import { ArrowUpRight, Mail, Send } from 'lucide-react'
+import { ArrowUpRight, Check, Mail, Send } from 'lucide-react'
 import Magnetic from '../components/Magnetic'
 import './Contact.css'
 
-// Paste your form endpoint here (for example a Formspree URL).
+// Paste your Formspree endpoint here, for example
+// 'https://formspree.io/f/xxxxxxxx'
 // While this is empty, the form stays disabled and says so honestly.
-const FORM_ENDPOINT = ''
+const FORM_ENDPOINT = 'https://formspree.io/f/xrpplnwq'
 
 // Built from two parts so simple bots can't scrape it from the page
 const EMAIL = ['ayushyadava9170', 'gmail.com'].join('@')
+
+const MAX_LENGTH = 1000
+
+const topics = [
+  'Internship opportunity',
+  'Project collaboration',
+  'Just saying hi',
+]
 
 const links = [
   {
@@ -32,6 +41,8 @@ const links = [
 function Contact() {
   const reduce = useReducedMotion()
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
+  const [sentName, setSentName] = useState('')
+  const [length, setLength] = useState(0)
   const connected = FORM_ENDPOINT !== ''
 
   const reveal = reduce
@@ -45,9 +56,9 @@ function Contact() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    if (!connected) return
+    if (!connected || status === 'sending') return
 
-    const form = e.currentTarget
+    const data = Object.fromEntries(new FormData(e.currentTarget))
     setStatus('sending')
 
     try {
@@ -57,12 +68,13 @@ function Contact() {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        body: JSON.stringify(data),
       })
 
       if (response.ok) {
+        setSentName(String(data.name || '').trim().split(' ')[0])
+        setLength(0)
         setStatus('sent')
-        form.reset()
       } else {
         setStatus('error')
       }
@@ -107,54 +119,130 @@ function Contact() {
           </ul>
         </motion.div>
 
-        <motion.form className="contact__form" onSubmit={handleSubmit} {...reveal}>
-          <h3>Send a message</h3>
+        <motion.div {...reveal}>
+          {status === 'sent' ? (
+            <div className="contact__sent" role="status">
+              <span className="contact__check">
+                <Check size={30} aria-hidden="true" />
+              </span>
+              <h3>Thanks{sentName ? `, ${sentName}` : ''}!</h3>
+              <p>
+                Your message was sent to my inbox. If you left a valid email
+                address, I can reply to it directly.
+              </p>
+              <button
+                type="button"
+                className="btn btn--ghost"
+                onClick={() => setStatus('idle')}
+              >
+                Send another message
+              </button>
+            </div>
+          ) : (
+            <form className="contact__form" onSubmit={handleSubmit}>
+              <h3>Send a message</h3>
+              <p className="contact__sub">
+                Internship opportunities and project ideas are welcome.
+              </p>
 
-          <label htmlFor="cf-name">Name</label>
-          <input id="cf-name" name="name" type="text" required autoComplete="name" />
+              <fieldset className="contact__topics">
+                <legend>What is this about?</legend>
+                <div>
+                  {topics.map((topic, i) => (
+                    <label key={topic} className="contact__topic">
+                      <input
+                        type="radio"
+                        name="topic"
+                        value={topic}
+                        defaultChecked={i === 0}
+                      />
+                      <span>{topic}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
 
-          <label htmlFor="cf-email">Email</label>
-          <input id="cf-email" name="email" type="email" required autoComplete="email" />
+              <label htmlFor="cf-name">Name</label>
+              <input
+                id="cf-name"
+                name="name"
+                type="text"
+                required
+                maxLength={80}
+                autoComplete="name"
+              />
 
-          <label htmlFor="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="5" required />
+              <label htmlFor="cf-email">Email</label>
+              <input
+                id="cf-email"
+                name="email"
+                type="email"
+                required
+                maxLength={120}
+                autoComplete="email"
+              />
 
-          {/* Honeypot: real people never see or fill this field */}
-          <input
-            className="contact__trap"
-            name="_gotcha"
-            type="text"
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-          />
+              <label htmlFor="cf-message">Message</label>
+              <textarea
+                id="cf-message"
+                name="message"
+                rows="5"
+                required
+                minLength={10}
+                maxLength={MAX_LENGTH}
+                onChange={(e) => setLength(e.target.value.length)}
+              />
+              <p className="contact__count">
+                {length} / {MAX_LENGTH}
+              </p>
 
-          <button
-            type="submit"
-            className="btn btn--primary"
-            disabled={!connected || status === 'sending'}
-          >
-            <Send size={16} />
-            {status === 'sending' ? 'Sending...' : 'Send message'}
-          </button>
+              <input
+                type="hidden"
+                name="_subject"
+                defaultValue="New message from the AI CYBERVERSE portfolio"
+              />
 
-          {!connected && (
-            <p className="contact__note">
-              This form is not connected to a service yet, so it cannot send
-              anything. Please use the email button above.
-            </p>
+              {/* Honeypot: real people never see or fill this field */}
+              <input
+                className="contact__trap"
+                name="_gotcha"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+
+              <button
+                type="submit"
+                className="btn btn--primary"
+                disabled={!connected || status === 'sending'}
+              >
+                <Send size={16} />
+                {status === 'sending' ? 'Sending...' : 'Send message'}
+              </button>
+
+              {!connected && (
+                <p className="contact__note">
+                  This form is not connected to a service yet, so it cannot
+                  send anything. Please use the email button instead.
+                </p>
+              )}
+              {connected && status !== 'error' && (
+                <p className="contact__note">
+                  Your message is sent through Formspree to my inbox, and I
+                  will only use your details to reply.
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="contact__note contact__note--bad" role="alert">
+                  Something went wrong, so your message was not sent. Please
+                  email me directly at{' '}
+                  <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+                </p>
+              )}
+            </form>
           )}
-          {status === 'sent' && (
-            <p className="contact__note contact__note--ok" role="status">
-              Thanks! Your message was sent.
-            </p>
-          )}
-          {status === 'error' && (
-            <p className="contact__note contact__note--bad" role="status">
-              Something went wrong. Please email me directly instead.
-            </p>
-          )}
-        </motion.form>
+        </motion.div>
       </div>
 
       <footer className="contact__footer">
