@@ -1,15 +1,16 @@
 // screenshot: set to a path like '/projects/browser-agent.webp' after you
 // add a REAL screenshot to the public/projects folder. Leave null until then.
+// icon: a short name from src/components/projectIcons.js
 
 export const featuredProjects = [
   {
     id: 'browser',
     index: '01',
+    icon: 'bot',
     year: '2026',
     title: 'Autonomous Browser Agent',
     tagline: 'Plain-English goals in, browser actions out.',
     color: '#22d3ee',
-    icon: 'bot',
     screenshot: null,
     github: 'https://github.com/ayush-yadav314/autonomous-browser-agent',
     demo: null,
@@ -82,11 +83,11 @@ export const featuredProjects = [
   {
     id: 'finance',
     index: '02',
+    icon: 'trending',
     year: '2025 – 2026',
     title: 'Multi-Agent Financial Research Assistant',
     tagline: 'Market data, sentiment and charts in one agent workflow.',
     color: '#8b5cf6',
-    icon: 'trending',
     screenshot: null,
     github: 'https://github.com/ayush-yadav314/financial-agent-ai',
     demo: 'https://financial-agent-ai-a.streamlit.app/',
@@ -153,11 +154,11 @@ export const featuredProjects = [
   {
     id: 'platelog',
     index: '03',
+    icon: 'dumbbell',
     year: 'Full-stack',
     title: 'PlateLog',
     tagline: 'Log sets fast, watch your progress, get AI coaching.',
     color: '#a3e635',
-    icon: 'dumbbell',
     screenshot: null,
     github: 'https://github.com/ayush-yadav314/platelog',
     demo: 'https://platelog-alpha.vercel.app/',
@@ -231,7 +232,7 @@ export const featuredProjects = [
       'No automated tests or CI yet.',
     ],
   },
-    {
+  {
     id: 'cyberverse',
     index: '04',
     icon: 'sparkles',
@@ -241,8 +242,7 @@ export const featuredProjects = [
     color: '#ec4899',
     screenshot: null,
     github: 'https://github.com/ayush-yadav314/ai-cyberverse',
-    demo: null,
-    demoLabel: 'You are viewing it now',
+    demo: 'https://ai-cyberverse.vercel.app/',
     problem:
       'A portfolio can list skills without proving them. This one is built to show them: interactive diagrams, project write-ups that include limitations, and skills labelled as hands-on or still learning.',
     approach:

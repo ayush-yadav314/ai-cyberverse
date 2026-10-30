@@ -3,7 +3,7 @@
 A futuristic personal portfolio for Ayush Yadav, an aspiring Agentic AI Developer
 (B.Tech CSE, Artificial Intelligence).
 
-**Live site:** https://YOUR-SITE.vercel.app
+**Live site:** https://ai-cyberverse.vercel.app
 
 ## What's inside
 
