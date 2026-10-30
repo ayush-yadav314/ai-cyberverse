@@ -63,7 +63,7 @@ Open the [live site](https://ai-cyberverse.vercel.app) and try these in order:
 | **Hero** | Animated name, a canvas neural orb that follows the pointer, an illustrative agent terminal |
 | **AI Universe** | Interactive diagram of the agent lifecycle |
 | **About** | Profile card, learning timeline, a "currently learning" list and the DSA Lab |
-| **Projects** | Four featured case studies and two smaller projects |
+| **Projects** | Four featured case studies with clickable architecture flows |
 | **Skills** | A constellation of skills grouped in clusters, tied to the projects that use them |
 | **Contact** | Social links and an optional form that stays disabled until connected to a service |
 
@@ -180,8 +180,6 @@ flowchart LR
 
 </details>
 
-**Smaller projects:** [Quant Strategy Pipeline](https://github.com/ayush-yadav314/crowdwisdom-quant-pipeline) (uses synthetic data, as its README explains) and [Breast Cancer Prediction](https://github.com/ayush-yadav314/breast-cancer-prediction) (a learning project, not a medical tool).
-
 ---
 
 ## Engineering decisions
@@ -246,7 +244,7 @@ npm run dev
 
 ```
 src/
-  components/   Navbar, NeuralOrb, HeroTerminal, DsaLab, ProjectCard, MiniProjectCard,
+  components/   Navbar, NeuralOrb, HeroTerminal, DsaLab, ProjectCard,
                 Magnetic, Tilt, CursorGlow, ScrollProgress, Loader
   sections/     Hero, About, AIUniverse, Projects, Skills, Contact
   data/         projects, skills, timeline, agentStages, navLinks, binarySearch

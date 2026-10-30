@@ -301,33 +301,3 @@ export const featuredProjects = [
     ],
   },
 ]
-
-// Smaller projects shown as compact cards
-export const moreProjects = [
-  {
-    id: 'quant',
-    icon: 'flask',
-    label: 'ASSESSMENT PROJECT',
-    title: 'Quant Strategy Pipeline',
-    color: '#fb923c',
-    tagline: 'A walk-forward ML pipeline for picking trading strategies.',
-    description:
-      'Ingests trading logs and macro-event data, engineers time and macro-proximity features, and trains an XGBoost model with walk-forward validation to choose a strategy per hour and weekday. Reports Sharpe ratio, Sortino ratio and max drawdown.',
-    stack: ['Python', 'XGBoost', 'SQLite'],
-    note: 'Uses synthetic trading logs and a curated macro-event calendar, as the repo README explains.',
-    github: 'https://github.com/ayush-yadav314/crowdwisdom-quant-pipeline',
-  },
-  {
-    id: 'cancer',
-    icon: 'activity',
-    label: 'ML PROJECT',
-    title: 'Breast Cancer Prediction',
-    color: '#3b82f6',
-    tagline: 'Benign or malignant classification with a Streamlit app.',
-    description:
-      'Classifies breast tumours as benign or malignant using Logistic Regression, with a Streamlit web app for live predictions.',
-    stack: ['Python', 'Logistic Regression', 'Streamlit', 'Jupyter'],
-    note: 'A learning project, not a medical tool.',
-    github: 'https://github.com/ayush-yadav314/breast-cancer-prediction',
-  },
-]
