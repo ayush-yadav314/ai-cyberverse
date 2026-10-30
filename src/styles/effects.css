@@ -82,3 +82,46 @@
     display: none;
   }
 }
+/* Scroll-linked background glow */
+.scroll-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.scroll-glow__blob {
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+}
+
+.scroll-glow__blob--a {
+  top: -20vmax;
+  left: -15vmax;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.24), transparent 65%);
+}
+
+.scroll-glow__blob--b {
+  right: -15vmax;
+  bottom: -25vmax;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.17), transparent 65%);
+}
+
+/* Gradient line between sections */
+.divider {
+  padding: 0 clamp(1rem, 6vw, 5rem);
+}
+
+.divider__line {
+  display: block;
+  max-width: 1150px;
+  height: 2px;
+  margin-inline: auto;
+  border-radius: 2px;
+  background: var(--aurora);
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.6);
+  transform-origin: left center;
+}

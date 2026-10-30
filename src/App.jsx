@@ -4,6 +4,8 @@ import Navbar from './components/Navbar'
 import Loader from './components/Loader'
 import CursorGlow from './components/CursorGlow'
 import ScrollProgress from './components/ScrollProgress'
+import ScrollGlow from './components/ScrollGlow'
+import SectionDivider from './components/SectionDivider'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import AIUniverse from './sections/AIUniverse'
@@ -43,15 +45,21 @@ function App() {
       <a href="#main" className="skip-link">
         Skip to content
       </a>
+      <ScrollGlow />
       <ScrollProgress />
       <CursorGlow />
       <Navbar />
       <main id="main">
         <Hero />
+        <SectionDivider />
         <About />
+        <SectionDivider />
         <AIUniverse />
+        <SectionDivider />
         <Projects />
+        <SectionDivider />
         <Skills />
+        <SectionDivider />
         <Contact />
       </main>
     </>

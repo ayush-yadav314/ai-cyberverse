@@ -51,13 +51,20 @@ const hoverLift = {
 function Hero() {
   const reduce = useReducedMotion()
   const { scrollY } = useScroll()
+
+  // Scroll-linked motion: orb drifts slower, text lifts and fades
   const orbY = useTransform(scrollY, [0, 600], [0, 90])
+  const contentY = useTransform(scrollY, [0, 500], [0, -60])
+  const contentOpacity = useTransform(scrollY, [0, 450], [1, 0.15])
 
   return (
     <section id="home" className="hero">
       <div className="hero__grid" aria-hidden="true" />
 
-      <div className="hero__content">
+      <motion.div
+        className="hero__content"
+        style={reduce ? undefined : { y: contentY, opacity: contentOpacity }}
+      >
         <div className="hero__identity">
           <motion.h1
             className="hero__name"
@@ -167,7 +174,7 @@ function Hero() {
             </a>
           </Magnetic>
         </motion.div>
-      </div>
+      </motion.div>
 
       <motion.div
         className="hero__visual"
