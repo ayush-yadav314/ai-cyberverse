@@ -92,21 +92,6 @@ function About() {
             aria-labelledby="learning-title"
             {...reveal}
           >
-           <motion.div {...reveal}>
-            <DsaLab />
-          </motion.div>
-            <h3 id="learning-title">CURRENTLY LEARNING</h3>
-            <ul>
-              {learning.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </motion.section>
-                    <motion.section
-            className="about__learning"
-            aria-labelledby="learning-title"
-            {...reveal}
-          >
             <h3 id="learning-title">CURRENTLY LEARNING</h3>
             <ul>
               {learning.map((item) => (
@@ -118,8 +103,6 @@ function About() {
           <motion.div {...reveal}>
             <DsaLab />
           </motion.div>
-
-          <h3 className="about__subhead">MY JOURNEY</h3>
 
           <h3 className="about__subhead">MY JOURNEY</h3>
           <ol className="timeline">
