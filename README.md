@@ -204,6 +204,7 @@ flowchart LR
 - The canvas animation pauses off-screen and uses fewer particles on small screens
 - Touch devices skip the cursor glow and tilt effects
 - SEO meta tags, Open Graph and Twitter card tags
+-Lighthouse (mobile, simulated throttling, October 2026): Performance 88, Accessibility 100, Best Practices 100, SEO 100. Scores vary a little between runs.
 
 ---
 
