@@ -186,7 +186,7 @@ function Skills() {
           <div className="skills__list">
             {clusters.map((c) => (
               <div key={c.id} style={{ '--c': c.color }}>
-                <h4>{c.title}</h4>
+                <h3>{c.title}</h3>
                 <div className="skills__chips">
                   {nodes
                     .filter((n) => n.cluster === c.id)
@@ -208,7 +208,7 @@ function Skills() {
               </div>
             ))}
             <div style={{ '--c': '#ffffff' }}>
-              <h4>PROJECTS</h4>
+              <h3>PROJECTS</h3>
               <div className="skills__chips">
                 {projects.map((p) => (
                   <button

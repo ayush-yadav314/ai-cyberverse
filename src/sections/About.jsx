@@ -49,7 +49,7 @@ function About() {
               )}
             </div>
             <h3>Ayush Yadav</h3>
-            <p className="about__role">Aspiring Agentic AI Developer</p>
+            <p className="about__role">AI Developer</p>
             <p className="about__status">
               <span aria-hidden="true" />
               Looking for internships

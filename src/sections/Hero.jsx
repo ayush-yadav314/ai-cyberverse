@@ -153,8 +153,8 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 0.6 }}
         >
-          I'm Ayush — an aspiring Agentic AI Developer exploring autonomous
-          systems, intelligent agents, and the future of AI.
+          I'm Ayush — an AI Developer exploring autonomous systems,
+          intelligent agents, and the future of AI.
         </motion.p>
 
         <motion.div

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/banner.svg" alt="AI CYBERVERSE: portfolio of Ayush Yadav, aspiring Agentic AI Developer" width="100%" />
+<img src="docs/banner.svg" alt="AI CYBERVERSE: portfolio of Ayush Yadav, aspiring AI Developer" width="100%" />
 
 <br />
 
